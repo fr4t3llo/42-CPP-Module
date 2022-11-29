@@ -46,7 +46,7 @@ std::ostream& operator<< (std::ostream& out, const Fixed& fix)
 
 float Fixed::toFloat( void ) const
 {
-    return ( (float)this->fixed / (1 << this->fracbits));
+    return ((float)this->fixed / (1 << this->fracbits));
 }
 
 int Fixed::toInt( void ) const
