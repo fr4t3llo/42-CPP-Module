@@ -1,5 +1,7 @@
 #include "Fixed.hpp"
 
+Fixed::~Fixed(){}
+
 Fixed::Fixed()
 {
     fixed = 0;
@@ -10,6 +12,11 @@ Fixed::Fixed(const Fixed &f)
     *this = f;
 }
 
+Fixed::Fixed(const int a)
+{
+    fixed = (int)(roundf(a * 256));
+}
+
 Fixed &Fixed::operator= (const Fixed &f)
 {
     if (this == &f)
@@ -18,7 +25,6 @@ Fixed &Fixed::operator= (const Fixed &f)
     return *this;
 }
 
-Fixed::~Fixed(){}
 
 int Fixed::getRawBits() const
 {
@@ -30,14 +36,10 @@ void Fixed::setRawBits(int const raw)
     fixed = raw;
 }
 
-Fixed::Fixed(const int a)
-{
-    fixed = (int)(roundf(a * 256));
-}
 
 float Fixed::toFloat() const
 {
-    return ((double)this->fixed / (double)256);
+    return ((float)this->fixed / 256);
 }
 
 Fixed::Fixed(const float nb)
@@ -48,7 +50,7 @@ Fixed::Fixed(const float nb)
 
 int Fixed::toInt() const
 {
-    return ((int)this->fixed / (int)256);
+    return (this->fixed / 256);
 }
 
 Fixed Fixed::operator*(const Fixed &t)
@@ -57,7 +59,7 @@ Fixed Fixed::operator*(const Fixed &t)
         return tic;
 }
 
-Fixed Fixed::operator++(void)
+Fixed &Fixed::operator++(void)
 {
     this->fixed++;
     return *this;
@@ -69,10 +71,10 @@ Fixed Fixed::operator++(int)
     tic = *this;
 
     this->fixed++;
-    return *this;
+    return tic;
 }
 
-Fixed Fixed::operator--(void)
+Fixed &Fixed::operator--(void)
 {
     this->fixed--;
     return *this;
@@ -84,7 +86,7 @@ Fixed Fixed::operator--(int)
     tic = *this;
 
     this->fixed--;
-    return *this;
+    return tic;
 }
 
 Fixed Fixed::max(const Fixed &a, const Fixed &b)
@@ -99,12 +101,12 @@ Fixed Fixed::max(Fixed &a, Fixed &b)
 
 Fixed Fixed::min(const Fixed &a, const Fixed &b)
 {
-    return ((a.fixed <= b.fixed) ? a : b);
+    return ((a.fixed < b.fixed) ? a : b);
 }
 
 Fixed Fixed::min(Fixed &a, Fixed &b)
 {
-    return ((a.fixed <= b.fixed) ? a : b);
+    return ((a.fixed < b.fixed) ? a : b);
 }
 
 bool Fixed::operator> (const Fixed &f)
@@ -151,14 +153,19 @@ bool Fixed::operator!= (const Fixed &f)
 
 Fixed Fixed::operator+ (const Fixed &f)
 {
-    this->fixed += f.fixed;
-    return *this;
+    Fixed tmp = *this;
+    tmp.fixed += f.fixed;
+    // this->fixed += f.fixed;
+    return tmp;
 }
+
 
 Fixed Fixed::operator- (const Fixed &f)
 {
-    this->fixed -= f.fixed;
-    return *this;
+   Fixed tmp = *this;
+    tmp.fixed -= f.fixed;
+    // this->fixed += f.fixed;
+    return tmp;
 }
 
 Fixed Fixed::operator/(const Fixed &f)
@@ -167,5 +174,10 @@ Fixed Fixed::operator/(const Fixed &f)
         return tic;
 }
 
+std::ostream& operator<< (std::ostream& out, const Fixed& fix)
+{
+    out << fix.toFloat();
+    return out;
+}
 
 

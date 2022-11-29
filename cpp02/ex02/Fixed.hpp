@@ -31,9 +31,9 @@ class Fixed {
         Fixed operator* (const Fixed& f);
         Fixed operator/ (const Fixed& f);
         Fixed operator-- (int);
-        Fixed operator-- (void);
+        Fixed &operator-- (void);
         Fixed operator++ (int);
-        Fixed operator++ (void);
+        Fixed &operator++ (void);
 
         static Fixed max(const Fixed &a, const Fixed &b);
         static Fixed min(const Fixed &a, const Fixed &b);
