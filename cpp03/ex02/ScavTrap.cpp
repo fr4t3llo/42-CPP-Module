@@ -2,7 +2,7 @@
 
 
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap():ClapTrap()
 {
     setName("unknown");
     setHintPoint(100);
@@ -24,21 +24,7 @@ ScavTrap::~ScavTrap()
     std::cout << "ScavTrap destructor called"<< std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& obj) {
-    *this = obj;
-}
-
-ScavTrap &ScavTrap::operator=(ScavTrap const &obj) {
-    if (this != &obj) {
-        this->setAttackDamage(obj.getAttackDamage());
-        this->setEnergyPoint(obj.getEnergyPoint());
-        this->setHintPoint(obj.getHintPoint());
-        this->setName(obj.getName());
-    }
-    return *this;
-}
-
-void ScavTrap::guardGate(){std::cout << "scavtrap guard" << std::endl;}
+void ScavTrap::guardGate(){std::cout << "ScavTrap guard" << std::endl;}
 
 void ScavTrap::attack(const std::string &target)
 {

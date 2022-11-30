@@ -5,14 +5,14 @@ void ClapTrap::setHintPoint(unsigned int setHP){this->HitPoint = setHP;};
 void ClapTrap::setEnergyPoint(unsigned int setEP){this->energyPoint = setEP;};    
 void ClapTrap::setAttackDamage(unsigned int setAD){this->attackDamage = setAD;};   
 
-std::string ClapTrap::getName() const {return this->name;};    
-int         ClapTrap::getHintPoint() const {return this->HitPoint;};    
-int         ClapTrap::getEnergyPoint()const {return this->energyPoint;};    
-int         ClapTrap::getAttackDamage()const {return this->attackDamage;};
+std::string ClapTrap::getName(){return this->name;};    
+int         ClapTrap::getHintPoint(){return this->HitPoint;};    
+int         ClapTrap::getEnergyPoint(){return this->energyPoint;};    
+int         ClapTrap::getAttackDamage(){return this->attackDamage;};
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap()
@@ -30,12 +30,12 @@ ClapTrap::ClapTrap(std::string name)
     this->energyPoint = 10;
     this->attackDamage = 0;
     this->name = name;
-    std::cout << "Ruuuuuuun constructor" << std::endl;
+    std::cout << "Ruuuuuuun ClapTrap Constructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-    std::cout << "Copy Constructor Called" << std::endl;
+    std::cout << "ClapTrap Copy Constructor Called" << std::endl;
     *this = obj;
 }
 

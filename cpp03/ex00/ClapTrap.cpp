@@ -14,6 +14,18 @@ ClapTrap::ClapTrap()
     std::cout << "Ruuuuuuun Default Constructor" << std::endl;
 }
 
+// ClapTrap::ClapTrap(const char * str) {
+    // if (str == NULL)
+        // throw std::invalid_argument("invalid name");
+    // this->HitPoint = 10;
+    // this->energyPoint = 10;
+    // this->attackDamage = 0;
+    // this->name = str;
+    // std::cout << "Ruuuuuuun and set Name have been called" << std::endl;
+// 
+// }
+// 
+
 ClapTrap::ClapTrap(std::string name)
 {
     this->HitPoint = 10;

@@ -4,5 +4,7 @@ int main()
 {
     ClapTrap saif("FRATELLO");
     saif.attack("zombie");
-    saif.takeDamage(10);
+    saif.takeDamage(5);
+    saif.beRepaired(3);
+
 }

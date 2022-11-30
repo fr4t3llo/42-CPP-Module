@@ -1,18 +1,18 @@
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-
     ClapTrap saif("FRATELLO");
     ClapTrap saifo(saif);
     ScavTrap s;
-    ClapTrap *var = &s; //anything claptrap do scavtrap do too !!
- 
+    ClapTrap *var = &s;
+
     saif.attack("zombie 1");
     saif.takeDamage(10);
-    saif.beRepaired(9);
     var->setName("qMp");
     s.attack("zombie");
     s.guardGate();
+    FragTrap frag("zombie 2");
+    frag.attack("saifo");
+    frag.highFivesGuys();
 }
