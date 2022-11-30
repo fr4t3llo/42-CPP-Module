@@ -1,5 +1,15 @@
 #include "ClapTrap.hpp" 
 
+void ClapTrap::setName(std::string name){this->name = name;};    
+void ClapTrap::setHintPoint(unsigned int setHP){this->HitPoint = setHP;};    
+void ClapTrap::setEnergyPoint(unsigned int setEP){this->energyPoint = setEP;};    
+void ClapTrap::setAttackDamage(unsigned int setAD){this->attackDamage = setAD;};   
+
+std::string ClapTrap::getName(){return this->name;};    
+int         ClapTrap::getHintPoint(){return this->HitPoint;};    
+int         ClapTrap::getEnergyPoint(){return this->energyPoint;};    
+int         ClapTrap::getAttackDamage(){return this->attackDamage;};
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "Destructor called" << std::endl;
