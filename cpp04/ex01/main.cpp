@@ -14,20 +14,27 @@ int main()
     const WrongAnimal* m = new WrongAnimal();
     std::cout << j->getType() << std::endl;
     std::cout << i->getType() << std::endl;
+    std::cout << n->getType() << std::endl;
+    std::cout << m->getType() << std::endl;
+    std::cout << meta->getType() << std::endl;
     std::cout << "******************************************" << std::endl; 
     i->makeSound();
     j->makeSound();
     meta->makeSound();
-    std::cout << n->getType() << std::endl;
-    std::cout << m->getType() << std::endl;
-    std::cout << "******************************************" << std::endl; 
     m->makeSound();
     n->makeSound();
     std::cout << "******************************************" << std::endl; 
     delete m;
     delete n;
-    delete j; //should not create a leak
+    delete j;
     delete i;
     delete meta;
+
+    // deep copy test
+    Cat obj;
+    {
+        Cat tmp = obj;
+    }
+
     return 0;
 }

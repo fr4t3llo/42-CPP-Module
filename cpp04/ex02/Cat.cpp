@@ -28,7 +28,7 @@ Cat	&Cat::operator=(const Cat &obj)
 	this->type = obj.getType();
 	for (int i = 0; i < 100; i++)
 	{
-		this->brain->ideas[i] = obj.brain->ideas[i]; ///////////////////////////////////////////////////////*****
+		this->brain->ideas[i] = obj.brain->ideas[i];
 	}
 	return (*this);
 }

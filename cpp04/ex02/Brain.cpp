@@ -18,7 +18,7 @@ Brain &Brain::operator=(const Brain &obj)
 		return *this;
 	for (int i = 0; i < 100; i++)
 	{
-		this->ideas[i] = obj.ideas[i]; // you must to learn about deep copy ans shallow copy
+		this->ideas[i] = obj.ideas[i];
 	}
 	return *this;
 }
