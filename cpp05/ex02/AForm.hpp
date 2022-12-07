@@ -4,7 +4,7 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-class Bureaucrat; // forward declaration
+class Bureaucrat; 
 class Form
 {
     private:
@@ -18,11 +18,12 @@ class Form
         Form(const Form &obj);
         Form &operator= (const Form &obj);
         Form(std::string name, int grade, int grade_to_exec);
-        void        setName(std::string name);
+        // void        setName(std::string name);
         std::string getName()const;
-        int        getGrade()const;
-        int        getGradeToExec()const;
+        int         getGrade()const;
+        int         getGradeToExec()const;
         bool        getIndicat()const;
+        virtual void	execute(Bureaucrat const &executor) const = 0;
         class GradeTooHighException : public std::exception
         {
             const char *what() const throw()
@@ -37,7 +38,7 @@ class Form
                 return "grade to low";
             }
         };
-        void beSigned(Bureaucrat &);
+        void beSigned(Bureaucrat &obj);
 };
 
 std::ostream &operator << (std::ostream &out,const Form &obj);

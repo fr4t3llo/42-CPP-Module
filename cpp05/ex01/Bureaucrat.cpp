@@ -28,7 +28,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 
 void Bureaucrat::incr()
 {
-    if (this->_grade > 1 && this->_grade < 150) //
+    if (this->_grade  -1 >= 1 && this->_grade  - 1 <= 150) //
         this->_grade--;
     else
         throw Bureaucrat::GradeTooHighException();
@@ -36,10 +36,18 @@ void Bureaucrat::incr()
 
 void Bureaucrat::decr()
 {
-    if (this->_grade < 150 && this->_grade > 1) //
+    if (this->_grade  + 1 <= 150 && this->_grade +1 >= 1) //
         this->_grade++;
     else
         throw Bureaucrat::GradeTooLowException();
+}
+
+void Bureaucrat::signForm(const Form &obj)
+{
+    if (obj.getIndicat() == true && obj.getGrade() < this->getGrade())
+        std::cout << obj.getName() << "  signed " << this->getName() <<  std::endl;
+    else
+        std::cout << obj.getName() << " couldn’t sign " << this->getName() << "because his grade to low" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string str, int grade) : name(str) , _grade(grade)
@@ -53,6 +61,6 @@ Bureaucrat::Bureaucrat(std::string str, int grade) : name(str) , _grade(grade)
 
 std::ostream &operator<< (std::ostream &out, const Bureaucrat &obj)
 {
-    out << obj.getName() << ", bureaucrat grade" << obj.getGrade() << "." << std::endl;
+    out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
     return out;
 }

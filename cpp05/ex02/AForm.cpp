@@ -1,7 +1,6 @@
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : name("unknowm"), indicat(false), _grade(30), grade_to_exec(30)
+Form::Form() : name("unknowm"), _grade(30), grade_to_exec(30)
 {
     std::cout << "Default constructor called " << std::endl;
     this->indicat = false;
@@ -18,7 +17,7 @@ Form::Form(std::string name, int grade, int grade_exec) : name(name), _grade(gra
     this->indicat = false;
 }
 
-Form::Form(const Form &obj) : name(obj.name), indicat(obj.indicat), _grade(obj._grade), grade_to_exec(obj.grade_to_exec)
+Form::Form(const Form &obj) : name(obj.name), _grade(obj._grade), grade_to_exec(obj.grade_to_exec)
 {
     std::cout << "coppy constructor called" << std::endl;
     *this = obj;
@@ -43,6 +42,14 @@ std::ostream &operator<<(std::ostream &out, const Form &obj)
     return out;
     
  }
+// void Form::signForm(Bureaucrat &obj)
+// {
+//     if (this->indicat == true && obj.getGrade() < this->getGrade())
+//         std::cout << obj.getName() << "  signed " << this->getName() <<  std::endl;
+//     else
+//         std::cout << obj.getName() << " couldn’t sign " << this->getName() << "because his grade to low" << std::endl;
+// }
+
 
 void Form::beSigned(Bureaucrat &obj)
 {

@@ -28,7 +28,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 
 void Bureaucrat::incr()
 {
-    if (this->_grade > 1 && this->_grade < 150) //
+    if (this->_grade - 1 >= 1 && this->_grade - 1 <= 150) //
         this->_grade--;
     else
         throw Bureaucrat::GradeTooHighException();
@@ -36,7 +36,7 @@ void Bureaucrat::incr()
 
 void Bureaucrat::decr()
 {
-    if (this->_grade < 150 && this->_grade > 1) //
+    if (this->_grade  + 1 <= 150 && this->_grade + 1 >= 1) //
         this->_grade++;
     else
         throw Bureaucrat::GradeTooLowException();
@@ -53,6 +53,6 @@ Bureaucrat::Bureaucrat(std::string str, int grade) : name(str) , _grade(grade)
 
 std::ostream &operator<< (std::ostream &out, const Bureaucrat &obj)
 {
-    out << obj.getName() << ", bureaucrat grade" << obj.getGrade() << "." << std::endl;
+    out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
     return out;
 }

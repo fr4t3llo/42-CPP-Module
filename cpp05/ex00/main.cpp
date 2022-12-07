@@ -2,13 +2,13 @@
 
 int main()
 {
-	Bureaucrat i("", 2);
-	Bureaucrat j("", 150);
+	Bureaucrat i("one", 150);
+	Bureaucrat j("two", 149);
 
 	try
 	{
-		i.incr();
-		j.incr();
+		i.decr();
+		j.decr();
 		std::cout << i << std::endl;
 		std::cout << j << std::endl;
 	}

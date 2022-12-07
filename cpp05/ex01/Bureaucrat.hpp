@@ -2,13 +2,14 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 
+class Form; 
 class Bureaucrat
 {
     private:
         const std::string name;
         int _grade;
-        // const int x;
     public:
         Bureaucrat();
         ~Bureaucrat();
@@ -19,10 +20,13 @@ class Bureaucrat
         std::string getName()const;
         void        incr();
         void        decr();
-        class GradeTooHighException : public std::runtime_error
+        class GradeTooHighException : public std::exception 
         {
             public:
-             GradeTooHighException() : runtime_error("Grade is to hight") {}
+                virtual const char* what() const throw()
+                {
+                    return ("grade to high");
+                }
         };
 
         class GradeTooLowException : public std::exception 
@@ -30,9 +34,10 @@ class Bureaucrat
             public:
                 virtual const char* what() const throw()
                 {
-                    return ("meow error");
+                    return ("grade to low");
                 }
         };
+        void signForm(const Form &obj);
 };
 
 std::ostream & operator << (std::ostream &out,const Bureaucrat &obj);

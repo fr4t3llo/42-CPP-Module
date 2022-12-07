@@ -3,25 +3,26 @@
 
 #include <iostream>
 
+class Form;
 class Bureaucrat
 {
-    private:
+    private :
         const std::string name;
-        int _grade;
-    public:
+        int grade;
+    public :
         Bureaucrat();
         ~Bureaucrat();
         Bureaucrat(const Bureaucrat &obj);
-		Bureaucrat(std::string name, int grade);
         Bureaucrat &operator=(const Bureaucrat &obj);
+        Bureaucrat(std::string name, int grade);
         int         getGrade()const;
         std::string getName()const;
         void        incr();
         void        decr();
-       class GradeTooHighException : public std::exception 
+        class GradeTooHighException : public std::exception 
         {
             public:
-                virtual const char* what() const throw()
+                const char* what() const throw()
                 {
                     return ("grade too high");
                 }
@@ -30,13 +31,15 @@ class Bureaucrat
         class GradeTooLowException : public std::exception 
         {
             public:
-                virtual const char* what() const throw()
+                const char* what() const throw()
                 {
                     return ("grade too low");
                 }
         };
+        void    executeForm(Form const & form);
+       
+        
 };
-
 std::ostream & operator << (std::ostream &out,const Bureaucrat &obj);
 
 #endif
