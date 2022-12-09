@@ -2,11 +2,11 @@
 
 int main()
 {
-	Bureaucrat i("one", 150);
-	Bureaucrat j("two", 149);
 
 	try
 	{
+		Bureaucrat i("one", 150);
+		Bureaucrat j("two", 149);
 		i.decr();
 		j.decr();
 		std::cout << i << std::endl;

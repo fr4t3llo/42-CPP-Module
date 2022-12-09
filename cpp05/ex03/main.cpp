@@ -3,12 +3,15 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-
+#include "Intern.hpp"
 
 int main()
 {
 	try
 	{
+
+		Intern someRandomIntern;
+		Form* rrf;
 		Bureaucrat i("SAIF", 4);
 		Bureaucrat j("FRATELLO", 150);
 		RobotomyRequestForm Robot("ROBOT");
@@ -23,6 +26,7 @@ int main()
 		Robot.execute(i);
 		meta.beSigned(i);
 		meta.execute(i);
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	}
 	catch(std::exception& exep)
 	{

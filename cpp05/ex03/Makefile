@@ -2,9 +2,9 @@ NAME = Robot
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Bureaucrat.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp \
+SRC = main.cpp Bureaucrat.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp\
 		AForm.cpp ShrubberyCreationForm.cpp 
-INC = Bureaucrat.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp \
+INC = Bureaucrat.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp\
 		AForm.hpp ShrubberyCreationForm.hpp 
 OBJS = $(SRC:.cpp=.o)
 
