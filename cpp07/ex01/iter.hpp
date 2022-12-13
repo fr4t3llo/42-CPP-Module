@@ -4,9 +4,11 @@
 #include <iostream>
 
 template <typename T>
-void iter(T *address,  int lenght, void (*fun)(T &array))
+void iter(T *address,  int lenght, void (*fun)(T const &array))
 {
     int i = 0;
+    if (fun == NULL)
+        return ;
     while (i < lenght)
     {
         fun(address[i]);
@@ -20,10 +22,4 @@ void fun(T address)
     std::cout << address << std::endl;
 }
 
-
-template <typename T>
-void fun2(T &array)
-{
-    array = 'A';
-}
 #endif
