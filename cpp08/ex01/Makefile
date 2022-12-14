@@ -1,9 +1,9 @@
-NAME = EasyFind
+NAME = Span
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp 
-INC = easyfind.hpp
+SRC = main.cpp Span.cpp
+INC = Span.hpp
 OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
