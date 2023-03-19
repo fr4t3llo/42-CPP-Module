@@ -2,9 +2,8 @@
 #define RPN_HPP
 
 #include <iostream>
-#include <vector>
+#include <stack>
 
-
-
+void calculation(std::string line);
 
 #endif

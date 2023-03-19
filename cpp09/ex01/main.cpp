@@ -2,14 +2,15 @@
 
 int main(int ac, char **av)
 {
-    std::vector<int> vc;
+    std::string line;
     if (ac == 2)
     {
-        
+        line = av[1];
+        calculation(line);
     }
     else 
     {
-        std::cout << "Error arg\n" << std::endl;
+        std::cout << "Error arg !!" << std::endl;
         exit (1);
     }
     return (0);
