@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <cctype>
 
-#define max 8 // define the max string  
+std::string trim(const std::string& str);
+bool isValidDate(std::string key);
 
 #endif
