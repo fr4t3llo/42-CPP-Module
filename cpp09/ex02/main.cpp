@@ -3,11 +3,15 @@
 
 int main(int ac, char **av)
 {
-    if (ac == 2)
+    std::vector<int> myvector;
+    if (ac != 1)
     {
-
+        
     }
     else
-        std::cout << "Error arg !" << std::endl;
+    {
+       std::cout << "Error" << std::endl;
+       exit (1);
+    }
     return (0);
 }
