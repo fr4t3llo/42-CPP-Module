@@ -2,7 +2,7 @@
 
 void calculation(std::string line)
 {
-    std::stack<int> mystack;
+    std::stack<double> mystack;
     for (size_t i = 0; i < line.size(); i++)
         {
             if (isdigit(line[i]))
@@ -55,12 +55,12 @@ void calculation(std::string line)
                     std::cout << "Error" << std::endl;
                     exit (1);
                 }
-                int a = mystack.top();
+                double a = mystack.top();
                 mystack.pop();
-                int b = mystack.top();
+                double b = mystack.top();
                 mystack.pop();
                 if (a == 0)
-                 {
+                {
                     std::cout << "Error div / 0" << std::endl;
                     exit (1);
                 }
